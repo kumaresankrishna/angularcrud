@@ -1,0 +1,21 @@
+<div class="form">
+    <input type="text" placeholder="NAME" [(ngModel)]="user['name']">
+    <input type="number" placeholder="AGE" [(ngModel)]="user['age']">
+    <button *ngIf="isupdate" (click)=update()>UPDATE</button>
+    <button *ngIf="!isupdate" (click)=adduser()>ADD</button>
+</div>
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Age</td>
+        <td>Action</td>
+    </tr>
+    <tr *ngFor="let user of userlist;let i = index;">
+        <td>{{user['id']}}</td>
+        <td>{{user['name']}}</td>
+        <td>{{user['age']}}</td>
+        <td><button (click)="edituser(user)">Edit</button></td>
+        <td><button (click)="Delete(user,i)">Delete</button></td>
+    </tr>
+</table>
